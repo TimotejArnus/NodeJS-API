@@ -1,0 +1,77 @@
+GET http://localhost:4000/users
+
+###
+
+POST http://localhost:5000/register
+Content-Type: application/json
+
+{
+  "email": "timi@mail.com",
+  "password": "123"
+}
+
+###
+
+POST http://localhost:4000/addcontact 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRpbWlAbWFpbC5jb20iLCJpYXQiOjE2MjE5MzU0MjcsImV4cCI6MTYyMTk0NjIyN30.62G2Cb9T0U8eYRbtmoG950Smktc-rWrXxRvxUTgP71g
+Content-Type: application/json
+
+{
+
+  "name": "K",
+  "email": "k@mail.com",
+  "phone": "03103031110"
+}
+
+###
+
+
+PUT  http://localhost:4000/contacts/60acc4976fa8044373ef6fda
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRpbWlAbWFpbC5jb20iLCJpYXQiOjE2MjE5MzU0MjcsImV4cCI6MTYyMTk0NjIyN30.62G2Cb9T0U8eYRbtmoG950Smktc-rWrXxRvxUTgP71g
+Content-Type: application/json
+
+{  
+  
+  "name": "mojKontakt2",
+  "email": "mojKontakt2@gmail.com",
+  "phone": "03103030"
+}
+
+###
+
+DELETE  http://localhost:4000/contacts/60a56e92a920df7ad635ed8e
+Authorization: Bearer eyJhbGciOiJIUzI1NiI
+
+###
+
+DELETE  http://localhost:5000/logout
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGltb3RlajEyMyIsImlhdCI6MTYyMDkyOTE2MywiZXhwIjoxNjIwOTMyNzYzfQ.Zxd_0vRu763MmAUWjuCRNBfPKdZXFhYSSGEpeAykCsA
+###
+
+GET http://localhost:4000/test
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGltb3RlajEyMyIsImlhdCI6MTYyMDkyOTE2MywiZXhwIjoxNjIwOTMyNzYzfQ.Zxd_0vRu763MmAUWjuCRNBfPKdZXFhYSSGEpeAykCsA
+
+
+###
+
+GET http://localhost:4000/contacts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGltb3RlajEyMyIsImlhdCI6MTYyMDkyOTE2MywiZXhwIjoxNjIwOTMyNzYzfQ.Zxd_0vRu763MmAUWjuCeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IlRJTU90ZWoiLCJpYXQiOjE2MjE0NDk2MzgsImV4cCI6MTYyMTQ1MzIzOH0.MBqsxKeLQeY6e1SMVIdA-jSux37i9a8tBlNTu1Gb4w8RNBfPKdZXFhYSSGEpeAykCsA
+
+###
+
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+  "email": "timi@mail.com",
+  "password": "1234"
+}
+
+###
+
+POST http://localhost:4001/token
+Content-Type: application/json
+
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiS3lsZTIiLCJpYXQiOjE2MTkzMzgwODl9.ZiuUY3B_mlOUkhqpsFuZPMc5d110x3ijbL-HVc-TquY"
+}
