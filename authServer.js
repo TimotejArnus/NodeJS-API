@@ -27,28 +27,37 @@ app.use(cors());
 app.use(express.json());
 
 app.post("/register", async (req, res) => {
-  try {
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(req.body.password, salt);
-    const mail = req.body.email;
-    const user = new User({
-      email: mail.toLowerCase(),
-      pass: hashedPassword,
-    });
-
-    user
-      .save()
-      .then((result) => {
-        res.sendStatus(201);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-
-    res.status(201).send();
-  } catch {
-    res.status(500).send();
-  }
+  const mail = req.body.email;
+  User.findOne({ email: mail.toLowerCase() }, async function(err, result){
+    if(result != null){
+      res.sendStatus(400)
+    } //user exist
+    else{
+      try {
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(req.body.password, salt);
+        const mail = req.body.email;
+        const user = new User({
+          email: mail.toLowerCase(),
+          pass: hashedPassword,
+        });
+    
+        user
+          .save()
+          .then((result) => {
+            res.sendStatus(201);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+    
+        res.status(201).send();
+      } catch {
+        res.status(500).send();
+      }
+    }
+  }) // if user already exist return err
+  
 });
 
 app.post("/login", async (req, res) => {
