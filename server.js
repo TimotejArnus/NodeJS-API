@@ -11,7 +11,7 @@ const { createIndexes } = require("./models/user");
 
 // Connection string for MongoDB
 const DbUri =
-  "mongodb+srv://timotej:motovilec@usercontacts.2jycg.mongodb.net/UserContact?retryWrites=true&w=majority";
+"mongodb+srv://username:password@usercontacts.2jycg.mongodb.net/UserContact?retryWrites=true&w=majority";
 mongoose
   .connect(DbUri, {
     useNewUrlParser: true,
